@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="bl" namespace="/b" extends="default">
+		<action name="*" class="com.bl.controller.BlAction" method="{1}">
+			<result name="store">/index.jsp</result>
+			<result name="inStore">/bl/inStore.jsp</result>
+			<result name="outStore">/bl/outStore.jsp</result>
+		</action>
+	</package>
+</struts>

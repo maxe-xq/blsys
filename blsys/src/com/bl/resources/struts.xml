@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 全局常量 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.locale" value="zh-CN" /> 
+	<constant name="struts.objectFactory" value="spring"/>
+	
+	<include file="struts-default.xml"></include>
+	<include file="struts-plugin.xml"></include>
+	<!-- 全局定义 -->
+	<package name="struts-global" extends="struts-default">
+		<global-results>
+			<result name="error">error.jsp</result>
+			<result name="login">login.jsp</result>
+		</global-results>
+	</package>	
+
+	<package name="default" extends="struts-global">
+		<interceptors>
+			<interceptor-stack name="bl-interceptor">
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="bl-interceptor" />
+	
+		<!-- 空action -->
+		<action name="null"></action>
+	</package>
+	
+ 	<include file="com/bl/resources/struts-user.xml"></include>
+ 	<include file="com/bl/resources/struts-bl.xml"></include>
+</struts>
